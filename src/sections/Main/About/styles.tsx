@@ -2,13 +2,21 @@ import styled from 'styled-components'
 
 export const Section = styled.section`
     background: #151515;
-    padding-block: 6.25rem;
+    padding-block: 6.25rem;    
+    
+    @media screen and (max-width: 768px) {
+        padding-block: 3.25rem;    
+    }
 `
 
 export const Content = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (max-width: 768px) {
+        justify-content: inherit; 
+    }
 `
 
 export const Left = styled.div`
@@ -20,6 +28,10 @@ export const Image = styled.img`
     width: 22.9375rem;
     height: 22.9375rem;
     filter: grayscale(100%);
+
+    @media screen and (max-width: 768px) {
+        display: none; 
+    }
 `
 
 export const Right =  styled.div`
@@ -54,6 +66,17 @@ export const Desc = styled.p`
     font-weight: 300;
     line-height: 2rem; /* 177.778% */
     width: 33.125rem;
+
+    @media screen and (max-width: 768px) {
+        color: #C4C4C4;
+        font-family: Inter;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 1.25rem; /* 142.857% */   
+        width: 100%;
+        text-align: justify;
+    }
 `
 
 export const SociaisDiv = styled.div`
@@ -69,6 +92,10 @@ export const Icon = styled.img`
 export const DivButtons = styled.div`
     display: flex;
     gap: 3rem;
+
+    @media screen and (max-width: 768px) {
+       gap: 1.5rem;
+    }
 `
 
 export const Buttons = styled.a`

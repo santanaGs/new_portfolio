@@ -4,7 +4,7 @@ interface ExperienceProps{
     title: string,
     date: string,
     subtitle: string,
-    description: string,
+    description: any,
 }
 
 export default function ExperienceDesc({title,date,subtitle,description}: ExperienceProps){

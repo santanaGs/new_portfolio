@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container } from "../../../Global";
 import { Section } from "../About/styles";
-import { ExperienceDiv, OptionTitle, Options, OptionsDiv, OptionsSelects, Title } from "./styles";
+import { OptionTitle, Options, OptionsDiv, OptionsSelects, Title } from "./styles";
 import ExperienceDesc from './components/Description';
 
 interface SelectProps {
@@ -9,7 +9,7 @@ interface SelectProps {
     title: string,
     date: string,
     subtitle: string,
-    description: string
+    description: any
 }
 
 const experiences: SelectProps[] = [
@@ -36,7 +36,7 @@ const experiences: SelectProps[] = [
 
 export default function Experience() {
     // Variables
-    const [expercience, setExperience] = useState<string>('Encanto Baby');
+    const [experience, setExperience] = useState<string>('Encanto Baby');
 
     const [title, setTitle] = useState<string>('Auxiliar administrativo');
     const [date, setDate] = useState<string>('2019 - MAR/2023');
@@ -54,14 +54,14 @@ export default function Experience() {
 
     // Rendering
     return (
-        <Section>
+        <Section id='experience'>
             <Container>
                 <Title>experiência</Title>
                 <OptionsDiv>
                     <OptionsSelects>
                         {experiences.map((item, index) => {
                             return (
-                                <Options active={item.subtitle === expercience} key={index} onClick={() => {
+                                <Options active={item.subtitle === experience} key={index} onClick={() => {
                                     setExperience(item.subtitle)
                                     setTitle(item.title)
                                     setDate(item.date)

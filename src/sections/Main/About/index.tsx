@@ -10,7 +10,7 @@ import email from '../../../../public/mail.svg'
 
 export default function About() {
     return (
-        <Section>
+        <Section id="about">
             <Container>
                 <Content>
                     <Left>
@@ -20,7 +20,7 @@ export default function About() {
                         <AboutTitle>sobre mim</AboutTitle>
                         <DivCityDesc>
                             <City>São Paulo, Brasil</City>
-                            <Desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id egestas dui. Nullam finibus aliquam enim quis faucibus. Aenean ac commodo dolor, nec bibendum velit.</Desc>
+                            <Desc>Com meus 20 anos de idade, mergulho diariamente no fascinante universo da análise e desenvolvimento de software. Sou um entusiasta apaixonado pela tecnologia, trilhando meu caminho como desenvolvedor full stack júnior. Nessa jornada desafiadora, tenho a oportunidade de explorar tanto o front-end quanto o back-end, construindo soluções completas e integradas.</Desc>
                         </DivCityDesc>
                         <SociaisDiv>
                             <Icon src={facebook}/>

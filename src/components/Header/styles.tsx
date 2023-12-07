@@ -5,6 +5,11 @@ export const HeaderDiv = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        margin-top: 3rem;
+    }
 `
 
 export const Logo = styled.p`
@@ -20,6 +25,10 @@ export const NavList = styled.ul`
     display: flex;
     gap: 3.88rem;
     list-style: none;
+
+    @media screen and (max-width: 768px) {
+        gap: .88rem;
+    }
 `
 
 export const NavItem = styled.li``
@@ -36,5 +45,9 @@ export const NavLink = styled.a`
 
     &:hover{
         border-bottom: 2px solid #6518B4;
+    }
+
+    @media screen and (max-width: 768px) {
+        font-size: .9rem;
     }
 `

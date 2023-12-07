@@ -6,12 +6,18 @@ export const Section = styled.section`
     justify-content: center;
     flex-direction: column;
     gap: 3.75rem;
+
+    @media screen and (max-width: 768px) {
+        height: 25rem;
+    }
+    
 `
 
 export const TitleDiv = styled.div`
     display: flex;
     flex-direction: column;
     gap: .75rem;
+    
 `
 
 export const SubTitle = styled.p`
@@ -19,6 +25,11 @@ export const SubTitle = styled.p`
     font-size: 1.5rem;
     font-weight: 600;
     text-transform: uppercase;
+
+    @media screen and (max-width: 768px) {
+        font-size: 1rem;
+        line-height: 1.5rem; /* 150% */
+    }
 `
 
 export const Title = styled.h1`
@@ -26,6 +37,11 @@ export const Title = styled.h1`
     font-size: 4rem;
     font-weight: 600;
     text-transform: uppercase;
+
+    @media screen and (max-width: 768px) {
+        font-size: 2rem;
+        width: 10rem;
+    }
 `
 
 export const ButtonsDiv = styled.div`

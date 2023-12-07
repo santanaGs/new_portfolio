@@ -14,12 +14,22 @@ export const Title = styled.h3`
 export const OptionsDiv = styled.div`
     display: flex;
     margin-top: 3rem;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }
 `
 
 export const OptionsSelects = styled.div`
     width: 30%;
     display: flex;
     flex-direction: column;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: row;
+        overflow-x: scroll;
+        width: 100%;
+    }
 `
 
 export const Options = styled.button<SelectProps>`
@@ -33,7 +43,14 @@ export const Options = styled.button<SelectProps>`
     justify-content: center;
     
     border-left: 0.25rem solid ${props => props.active ? '#6518B4' : 'transparent'};
-    background-color: ${props => props.active ? '#282828' : 'transparent'}
+    background-color: ${props => props.active ? '#282828' : 'transparent'};
+
+    @media screen and (max-width: 768px) {
+        border-left: none;
+        border-bottom: 0.25rem solid ${props => props.active ? '#6518B4' : '#151515'};
+    }
+
+    
 `
 
 export const OptionTitle = styled.p`

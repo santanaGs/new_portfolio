@@ -9,6 +9,10 @@ export const ContainerImage = styled.div`
     width: 33.125rem;
     max-height: 12.5rem;
     border-radius: 0.25rem 0rem 0rem 0.25rem;
+
+    @media screen and (max-width: 768px) {
+        width: 90%;
+    }
 `
 
 export const ImageS = styled.img`
@@ -23,6 +27,12 @@ export const ImageS = styled.img`
     &:hover{
         filter: grayscale(0);
     }
+
+    @media screen and (max-width: 768px) {
+        width: 21.5rem;
+    }
+
+
 `
 
 export const Title = styled.p`
@@ -44,6 +54,14 @@ export const Description = styled.p`
     font-weight: 300;
     line-height: 1.625rem; /* 162.5% */
     margin-bottom: 1.63rem;
+    min-height: 52px;
+
+    @media screen and (max-width: 768px) {
+        width: 90%;
+        font-weight: 300;
+        line-height: 1.125rem; 
+        text-align: justify;
+    }
 `
 
 export const Tech = styled.p`
