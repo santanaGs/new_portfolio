@@ -4,7 +4,7 @@ import { Section } from "../About/styles";
 import { Title } from "../Expe/styles";
 import { Grid } from "./styles";
 
-interface ProjectsProps{
+interface ProjectsProps {
     image: string,
     title: string,
     description: string,
@@ -13,7 +13,7 @@ interface ProjectsProps{
 }
 
 
-const projects : ProjectsProps[] = [
+const projects: ProjectsProps[] = [
     {
         image: 'https://imgur.com/2hn6VA3.png',
         title: 'Naped News',
@@ -56,6 +56,13 @@ const projects : ProjectsProps[] = [
         tech: 'React JS | Styled Components | Firebase',
         link: 'https://github.com/santanaGs/'
     },
+    {
+        image: 'https://imgur.com/taqexJQ.png',
+        title: 'SantanaPay',
+        description: 'Projeto que simula o checkout de um e-commerce.',
+        tech: 'React JS | Styled Components | TypeScript | Node.JS | Express | Sequelize | mySQL',
+        link: 'https://santanapay.vercel.app/'
+    },
 ]
 
 export default function Projects() {
@@ -64,18 +71,18 @@ export default function Projects() {
             <Container>
                 <Title>projetos</Title>
                 <Grid>
-                {projects.map((project, index) => {
-                    return(
-                        <Item
-                        key={index}
-                        image={project.image}
-                        title={project.title}
-                        description={project.description}
-                        tech={project.tech}
-                        link={project.link}
-                        />
-                    )
-                })}
+                    {projects.map((project, index) => {
+                        return (
+                            <Item
+                                key={index}
+                                image={project.image}
+                                title={project.title}
+                                description={project.description}
+                                tech={project.tech}
+                                link={project.link}
+                            />
+                        )
+                    })}
                 </Grid>
             </Container>
         </Section>
