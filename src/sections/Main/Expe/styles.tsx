@@ -56,7 +56,7 @@ export const Options = styled.button<SelectProps>`
 export const OptionTitle = styled.p`
     color: #C4C4C4;
     font-family: Inter;
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 300;
     line-height: normal;

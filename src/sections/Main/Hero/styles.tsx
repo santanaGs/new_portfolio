@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { motion } from "motion/react"
+
 
 export const Section = styled.section`
     height: 35rem;  
@@ -16,7 +18,7 @@ export const Section = styled.section`
 export const TitleDiv = styled.div`
     display: flex;
     flex-direction: column;
-    gap: .75rem;
+    gap: 1rem;
     
 `
 
