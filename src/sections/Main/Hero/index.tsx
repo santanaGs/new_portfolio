@@ -40,7 +40,7 @@ export default function Hero() {
                     <SubTitle>Desenvolvedor Full stack</SubTitle>
                 </TitleDiv>
                 <ButtonsDiv>
-                    <LinkedIn href="https://www.linkedin.com/in/gabriel-santana-4422a524a/" target="_blank">
+                    <LinkedIn href="https://www.linkedin.com/in/gabriel-santana-mobile-dev/" target="_blank">
                         <LinkedInLogo src={linkedin}/>
                         LinkedIn
                     </LinkedIn>
