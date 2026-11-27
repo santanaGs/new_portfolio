@@ -1,55 +1,39 @@
 import { Container } from "../../../Global";
-import { ButtonsDiv, GitHub, LinkedIn, LinkedInLogo, SubTitle, Title, TitleDiv } from "./styles";
-import { motion, useSpring, useScroll } from "motion/react"
+import { ButtonsDiv, HeroContent, HeroCopy, HeroImageFrame, HeroSection, Intro, Label, ProfileImage, SocialLink, SocialLinks, Status, Subtitle, Title } from "./styles";
 
-// Images
-import linkedin from '../../../../public/linkedin.svg'
-import github from '../../../../public/github.svg'
+const linkedInUrl = "https://www.linkedin.com/in/gabriel-santana-mobile-dev/";
 
 export default function Hero() {
-    const { scrollYProgress } = useScroll()
-    const scaleX = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
-        restDelta: 0.001,
-    })
     return (
-        <Container>
-            <motion.div
-                id="scroll-indicator"
-                style={{
-                    scaleX,
-                    position: "fixed",
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: 7,
-                    originX: 0,
-                    backgroundColor: "#6518B4",
-                }}
-            />
-            <motion.section
-            style={{ gap: '1rem', display: 'flex', flexDirection: 'column', marginTop: '3.75rem' }}
-                initial={{ opacity: 0 }} 
-                animate={{ opacity: 1 }} 
-                transition={{ duration: 2 }}
-            >
-                <TitleDiv>
-                    <SubTitle>Olá, eu sou</SubTitle>
-                    <Title>Gabriel Santana</Title>
-                    <SubTitle>Desenvolvedor Full stack</SubTitle>
-                </TitleDiv>
-                <ButtonsDiv>
-                    <LinkedIn href="https://www.linkedin.com/in/gabriel-santana-mobile-dev/" target="_blank">
-                        <LinkedInLogo src={linkedin}/>
-                        LinkedIn
-                    </LinkedIn>
-                    <GitHub href="https://github.com/santanaGs" target="_blank">
-                        <LinkedInLogo src={github}/>
-                        GitHub
-                    </GitHub>
-                </ButtonsDiv>
-            </motion.section>
-        </Container>
-    )
+        <HeroSection id="home" aria-labelledby="hero-title">
+            <Container>
+                <HeroContent>
+                    <HeroCopy>
+                        <Label>Mobile Developer <span>·</span> React Native &amp; TypeScript</Label>
+                        <Intro>Olá, eu sou</Intro>
+                        <Title id="hero-title">Gabriel <span>Santana.</span></Title>
+                        <Subtitle>
+                            Desenvolvedor Mobile Pleno na Catho, construindo experiências para mais de 1 milhão de usuários.
+                        </Subtitle>
+                        <Status><span aria-hidden="true" /> Atualmente na Catho <span className="divider">·</span> São Paulo, Brasil</Status>
+                        <ButtonsDiv>
+                            <a className="primary" href="#projects">Conheça meus projetos <span aria-hidden="true">↗</span></a>
+                            <a className="secondary" href={linkedInUrl} target="_blank" rel="noopener noreferrer">Vamos conversar</a>
+                        </ButtonsDiv>
+                        <SocialLinks aria-label="Redes profissionais">
+                            <SocialLink href={linkedInUrl} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></SocialLink>
+                            <SocialLink href="https://github.com/santanaGs" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></SocialLink>
+                        </SocialLinks>
+                    </HeroCopy>
+                    <HeroImageFrame>
+                        <ProfileImage src="/gabriel-santana.jpg" alt="Gabriel Santana" />
+                        <div className="image-caption">
+                            <span className="caption-dot" />
+                            <span>Mobile first. Código com propósito.</span>
+                        </div>
+                    </HeroImageFrame>
+                </HeroContent>
+            </Container>
+        </HeroSection>
+    );
 }

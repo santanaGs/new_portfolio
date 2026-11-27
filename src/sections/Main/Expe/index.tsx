@@ -1,86 +1,61 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 import { Container } from "../../../Global";
 import { Section } from "../About/styles";
 import { OptionTitle, Options, OptionsDiv, OptionsSelects, Title } from "./styles";
-import ExperienceDesc from './components/Description';
+import ExperienceDesc from "./components/Description";
 
-interface SelectProps {
-    select?: boolean | undefined,
-    title: string,
-    date: string,
-    subtitle: string,
-    description: any
+interface Experience {
+    title: string;
+    date: string;
+    company: string;
+    description: string;
 }
 
-const experiences: SelectProps[] = [
+const experiences: Experience[] = [
     {
-        "title": "Estagiário Full Stack",
-        "date": "Mar 2023 - Out 2023",
-        "subtitle": "Upper - Estágio",
-        "description": "Durante o meu período como estagiário, tive a incrível oportunidade de trabalhar com tecnologias modernas e desempenhar um papel ativo em projetos desafiadores. \n\nComo estagiário Full Stack, trabalhei tanto no desenvolvimento front-end quanto no back-end de aplicações. Utilizei tecnologias como JavaScript para a construção de interfaces dinâmicas e React.js para criar experiências de usuário envolventes."
+        title: "Mobile Developer Pleno",
+        date: "Mar 2025 — atual",
+        company: "Catho · Redarbor Brasil",
+        description: "Participo da migração do aplicativo nativo da Catho, usado por mais de 1 milhão de usuários Android, para React Native com Expo.\n\nContribuo nas decisões de arquitetura com Clean Architecture, MVVM e SOLID. Também mantenho uma biblioteca interna NPM para padronizar integrações com APIs externas e crio componentes reutilizáveis e padrões de código para o time.\n\nTrabalho em colaboração com equipes de produto e desenvolvimento do México e da Espanha.",
     },
     {
-        "title": "Desenvolvedor Júnior I Full Stack",
-        "date": "Nov 2023 - Abr 2024",
-        "subtitle": "Upper - Júnior I",
-        "description": "Após de me dedicar muito como estagiário, tive a incrível oportunidade de me tornar Desenvolvedor Júnior e melhorar meus estudos com tecnologias modernas e desempenhar um papel ativo em projetos desafiadores. \n\nUtilizei tecnologias como JavaScript para a construção de interfaces dinâmicas e React.js para criar experiências de usuário envolventes. \n\nParticipei ativamente do desenvolvimento mobile utilizando React Native, permitindo que eu ampliasse minhas habilidades para criar aplicativos eficientes e funcionais para diversas plataformas."
+        title: "Desenvolvedor Full Stack Júnior III",
+        date: "Abr 2024 — mar 2025",
+        company: "Upper Rocks · Tempo integral",
+        description: "Atuei no desenvolvimento ponta a ponta de dois aplicativos, combinando React Native no mobile e Laravel no back-end.\n\nNo QuickLink, contribuí com a base Laravel e o painel administrativo para gerenciar registros, APIs, relatórios, gráficos e exportações para Excel. Para lidar com a lentidão causada pelo volume de dados, ajudei a implementar paginação e otimizar consultas.\n\nNo Edukativo, participei de um sistema de gestão escolar e implementei download e cache de imagens no dispositivo, incluindo o tratamento de permissões de armazenamento.",
     },
     {
-        "title": "Desenvolvedor Júnior III Full Stack",
-        "date": "Abr 2024 - Atual",
-        "subtitle": "Upper - Júnior III",
-        "description": "Após me dedicar intensamente no meu papel como Desenvolvedor Júnior 1, tive a oportunidade de crescer e evoluir para o cargo de Desenvolvedor Júnior 3, onde pude aprimorar ainda mais minhas habilidades e conhecimentos. \n\nDurante essa trajetória, desempenhei um papel ativo em projetos desafiadores, trabalhando com tecnologias modernas e colaborando com equipes para criar soluções inovadoras. Utilizei tecnologias como JavaScript para o desenvolvimento de interfaces dinâmicas e React.js para construir experiências de usuário ricas e interativas.\n\nAlém disso, comecei a trabalhar com o framework Laravel, ampliando minhas competências no desenvolvimento backend, e com Inertia.js, o que me permitiu criar aplicações web modernas e dinâmicas, mantendo uma experiência de usuário fluida e altamente eficiente."
-    }    
-
-]
+        title: "Estagiário de Desenvolvimento Front-end",
+        date: "Nov 2023 — abr 2024",
+        company: "Upper Rocks · Estágio",
+        description: "Criei telas web usando HTML, CSS e JavaScript, transformando layouts em interfaces funcionais em parceria com o time de desenvolvimento.",
+    },
+];
 
 export default function Experience() {
-    // Variables
-    const [experience, setExperience] = useState<string>('Desenvolvedor Júnior III Full Stack');
+    const [experience, setExperience] = useState(experiences[0]);
 
-    const [title, setTitle] = useState<string>('Auxiliar administrativo');
-    const [date, setDate] = useState<string>('Abr 2024 - Atual');
-    const [subtitle, setSubtitle] = useState<string>('Upper - Júnior III');
-    const [description, setDescription] = useState<string>('Após me dedicar intensamente no meu papel como Desenvolvedor Júnior 1, tive a oportunidade de crescer e evoluir para o cargo de Desenvolvedor Júnior 3, onde pude aprimorar ainda mais minhas habilidades e conhecimentos. \n\nDurante essa trajetória, desempenhei um papel ativo em projetos desafiadores, trabalhando com tecnologias modernas e colaborando com equipes para criar soluções inovadoras. Utilizei tecnologias como JavaScript para o desenvolvimento de interfaces dinâmicas e React.js para construir experiências de usuário ricas e interativas.\n\nAlém disso, comecei a trabalhar com o framework Laravel, ampliando minhas competências no desenvolvimento backend, e com Inertia.js, o que me permitiu criar aplicações web modernas e dinâmicas, mantendo uma experiência de usuário fluida e altamente eficiente.');
-
-    const formatDescription = (desc: string) => {
-        return desc.split('\n').map((paragraph, index) => (
-            <React.Fragment key={index}>
-                {index > 0 && <br />} {/* Adiciona <br> apenas entre parágrafos, não antes do primeiro */}
-                {paragraph}
-            </React.Fragment>
-        ));
-    };
-
-    // Rendering
     return (
-        <Section id='experience'>
+        <Section id="experience" aria-labelledby="experience-title">
             <Container>
-                <Title>experiência</Title>
+                <Title id="experience-title">Experiência</Title>
                 <OptionsDiv>
-                    <OptionsSelects>
-                        {experiences.map((item, index) => {
-                            return (
-                                <Options active={item.subtitle === experience} key={index} onClick={() => {
-                                    setExperience(item.subtitle)
-                                    setTitle(item.title)
-                                    setDate(item.date)
-                                    setSubtitle(item.subtitle)
-                                    setDescription(item.description)
-                                }}>
-                                    <OptionTitle>{item.subtitle}</OptionTitle>
-                                </Options>
-                            )
-                        })}
+                    <OptionsSelects aria-label="Histórico profissional">
+                        {experiences.map((item) => (
+                            <Options
+                                type="button"
+                                active={item === experience}
+                                aria-pressed={item === experience}
+                                key={item.company}
+                                onClick={() => setExperience(item)}
+                            >
+                                <OptionTitle>{item.company}</OptionTitle>
+                            </Options>
+                        ))}
                     </OptionsSelects>
-                    <ExperienceDesc
-                        title={title}
-                        date={date}
-                        subtitle={subtitle}
-                        description={formatDescription(description)}
-                    />
+                    <ExperienceDesc {...experience} />
                 </OptionsDiv>
             </Container>
         </Section>
-    )
+    );
 }

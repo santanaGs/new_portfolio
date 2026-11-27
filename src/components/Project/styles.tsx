@@ -1,103 +1,112 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.article`
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    background: var(--color-surface);
+    transition: border-color 180ms ease, transform 180ms ease;
 
+    &:hover {
+        transform: translateY(-3px);
+        border-color: var(--color-border-strong);
+    }
+
+    .preview-link {
+        display: block;
+        overflow: hidden;
+        text-decoration: none;
+    }
+
+    .project-details {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.15rem 1.2rem 1.25rem;
+    }
+
+    .project-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: auto;
+    }
 `
 
 export const ContainerImage = styled.div`
-    border-left:  0.25rem solid #6518B4;
-    width: 33.125rem;
-    max-height: 12.5rem;
-    border-radius: 0.25rem 0rem 0rem 0.25rem;
-
-    @media screen and (max-width: 768px) {
-        width: 90%;
-    }
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--color-surface-raised);
 `
 
 export const ImageS = styled.img`
-    width: 33.125rem;
-    min-height: 12.5rem;
-    max-height: 12.5rem;
+    display: block;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    object-position: center center;
-    filter: grayscale(1);
-    transition: .3s;
+    object-position: center;
+    transition: transform 250ms ease;
 
-    &:hover{
-        filter: grayscale(0);
+    ${Container}:hover & {
+        transform: scale(1.035);
     }
-
-    @media screen and (max-width: 768px) {
-        width: 21.5rem;
-    }
-
-
 `
 
-export const Title = styled.p`
-    color: #FFF;
-    font-family: Inter;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    margin-block: 2rem;
+export const Title = styled.h3`
+    color: var(--color-text);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0;
 `
 
 export const Description = styled.p`
-    width: 27.375rem;
-    color: #C4C4C4;
-    font-family: Inter;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 300;
-    line-height: 1.625rem; /* 162.5% */
-    margin-bottom: 1.63rem;
-    min-height: 52px;
-
-    @media screen and (max-width: 768px) {
-        width: 90%;
-        font-weight: 300;
-        line-height: 1.125rem; 
-        text-align: justify;
-    }
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    line-height: 1.65;
+    margin: 0.65rem 0 0;
 `
 
 export const Tech = styled.p`
-    color: #6518B4;
-    font-family: Inter;
-    font-size: 0.875rem;
-    font-style: normal;
+    color: var(--color-accent);
+    font-size: 0.72rem;
     font-weight: 500;
-    line-height: 1.5rem; /* 171.429% */
-    margin-bottom: 2rem;
+    line-height: 1.5;
+    margin: 1rem 0 1.1rem;
 `
 
 export const Buttons = styled.a`
-    border: 3px solid #6518B4;
-    background-color: transparent;
-    display: flex;
+    min-height: 2.5rem;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 10rem;
-    height: 2.8125rem;
-    border-radius: .7rem;
-    gap: 1rem;
-    cursor: pointer;
-    text-decoration: none;
-    color: #fff;
-    font-size: 1rem;
+    gap: 0.55rem;
+    margin-top: auto;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 0.6rem;
+    color: var(--color-text);
+    font-size: 0.8rem;
     font-weight: 600;
-    transition: .3s;
+    text-decoration: none;
+    transition: border-color 180ms ease, background 180ms ease;
 
-
-    &:hover{
-        border: 3px solid #D24074;
+    &:hover {
+        border-color: var(--color-accent);
+        background: var(--color-accent-soft);
     }
 
+    &.repository {
+        color: var(--color-muted);
+        border-color: var(--color-border);
+    }
 `
 
 export const ButtonLogo = styled.img`
-
+    width: 0.9rem;
+    height: 0.9rem;
 `
