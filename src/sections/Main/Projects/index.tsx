@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { Container } from "../../../Global";
 import Item from "../../../components/Project";
 import { Grid, Section, SectionEyebrow, SectionTitle } from "./styles";
@@ -83,8 +84,17 @@ export default function Projects() {
                 <SectionTitle id="projects-title">Projetos em destaque</SectionTitle>
                 <p className="section-description">Uma seleção de aplicações e experiências que construí ao longo da minha jornada.</p>
                 <Grid>
-                    {projects.map((project) => (
-                        <Item key={project.title} {...project} />
+                    {projects.map((project, index) => (
+                        <motion.div
+                            key={project.title}
+                            initial={{ opacity: 0, y: 18 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.12 }}
+                            transition={{ duration: 0.45, delay: (index % 2) * 0.1, ease: "easeOut" }}
+                            style={{ height: "100%" }}
+                        >
+                            <Item {...project} />
+                        </motion.div>
                     ))}
                 </Grid>
             </Container>

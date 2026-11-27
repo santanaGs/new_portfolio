@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { Company, Date, DescriptionS, HeaderDiv, Title } from "./styles";
 
 interface ExperienceProps {
@@ -9,7 +10,12 @@ interface ExperienceProps {
 
 export default function ExperienceDesc({ title, date, company, description }: ExperienceProps) {
     return (
-        <article>
+        <motion.article
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.24, ease: "easeOut" }}
+        >
             <HeaderDiv>
                 <Title>{title}</Title>
                 <Date>{date}</Date>
@@ -18,6 +24,6 @@ export default function ExperienceDesc({ title, date, company, description }: Ex
             <DescriptionS>
                 {description.split("\n\n").map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </DescriptionS>
-        </article>
+        </motion.article>
     );
 }

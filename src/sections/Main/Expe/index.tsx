@@ -1,3 +1,4 @@
+import { AnimatePresence } from "motion/react";
 import { useState } from "react";
 import { Container } from "../../../Global";
 import { Section } from "../About/styles";
@@ -53,7 +54,9 @@ export default function Experience() {
                             </Options>
                         ))}
                     </OptionsSelects>
-                    <ExperienceDesc {...experience} />
+                    <AnimatePresence mode="wait" initial={false}>
+                        <ExperienceDesc key={experience.company} {...experience} />
+                    </AnimatePresence>
                 </OptionsDiv>
             </Container>
         </Section>
