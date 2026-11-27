@@ -1,69 +1,68 @@
 import styled from "styled-components";
 
-interface SelectProps{
-    active : boolean;
+interface SelectProps {
+    active: boolean;
 }
 
-export const Title = styled.h3`
-    color: #FFF;
-    font-size: 1.5rem;
+export const Title = styled.h2`
+    color: var(--color-text);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
     font-weight: 600;
-    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    margin: 0;
 `
 
 export const OptionsDiv = styled.div`
-    display: flex;
-    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: minmax(190px, 0.65fr) minmax(0, 1.8fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    margin-top: 2.5rem;
 
-    @media screen and (max-width: 768px) {
-        flex-direction: column;
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 `
 
 export const OptionsSelects = styled.div`
-    width: 30%;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
 
-    @media screen and (max-width: 768px) {
+    @media (max-width: 700px) {
         flex-direction: row;
-        overflow-x: scroll;
-        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 0.3rem;
     }
 `
 
 export const Options = styled.button<SelectProps>`
-    width: 13.0625rem;
-    height: 3.4375rem;
+    min-height: 3.4rem;
     flex-shrink: 0;
-    border: none;
-    padding: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    border-left: 0.25rem solid ${props => props.active ? '#6518B4' : 'transparent'};
-    background-color: ${props => props.active ? '#282828' : 'transparent'};
+    padding: 0.8rem 1rem;
+    border: 0;
+    border-left: 2px solid ${props => props.active ? "var(--color-accent)" : "transparent"};
+    background: ${props => props.active ? "var(--color-accent-soft)" : "transparent"};
+    color: ${props => props.active ? "var(--color-text)" : "var(--color-subtle)"};
+    cursor: pointer;
+    text-align: left;
+    transition: color 180ms ease, background 180ms ease;
 
-    @media screen and (max-width: 768px) {
-        border-left: none;
-        border-bottom: 0.25rem solid ${props => props.active ? '#6518B4' : '#151515'};
+    &:hover {
+        color: var(--color-text);
+        background: var(--color-accent-soft);
     }
 
-    
+    @media (max-width: 700px) {
+        min-height: 2.8rem;
+        border-left: 0;
+        border-bottom: 2px solid ${props => props.active ? "var(--color-accent)" : "transparent"};
+    }
 `
 
-export const OptionTitle = styled.p`
-    color: #C4C4C4;
-    font-family: Inter;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-`
-
-export const ExperienceDiv = styled.div`
-width: 100%;
-background-color: yellow;
-height: 5rem;
+export const OptionTitle = styled.span`
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    white-space: nowrap;
 `

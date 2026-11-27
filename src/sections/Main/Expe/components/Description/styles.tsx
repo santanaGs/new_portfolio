@@ -1,70 +1,42 @@
 import styled from "styled-components";
 
-export const DivS = styled.div`
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.62rem;
-
-    @media screen and (max-width: 768px) {
-        margin-top: 3rem;
-        width: 100%;
-    }
-`
-
 export const HeaderDiv = styled.div`
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    align-items: baseline;
     justify-content: space-between;
-
-    @media screen and (max-width: 768px) {
-        width: max-content;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
+    gap: 0.6rem 1rem;
 `
 
 export const Title = styled.h3`
-    color: #FFF;
-    font-size: 1.5rem;
-    font-weight: 500;
-
-    @media screen and (max-width: 768px) {
-        font-size: 1rem;
-    }
+    color: var(--color-text);
+    font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    margin: 0;
 `
 
 export const Date = styled.p`
-    color: #FFF;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.5rem; /* 150% */
+    color: var(--color-subtle);
+    font-size: 0.8rem;
+    margin: 0;
 `
 
-export const SubTitle = styled.p`
-    color: #6518B4;
-    font-family: Inter;
-    font-size: 1rem;
-    font-style: normal;
+export const Company = styled.p`
+    color: var(--color-accent);
+    font-size: 0.85rem;
     font-weight: 500;
-    line-height: 1.5rem; /* 150% */
+    margin: 0.7rem 0 1.3rem;
 `
 
-export const DescriptionS = styled.p`
-    color: #C4C4C4;
-    font-family: Inter;
-    font-size: 1.125rem;
-    font-style: normal;
-    font-weight: 300;
-    line-height: 1.75rem; /* 155.556% */
-    width: 39.75rem;
+export const DescriptionS = styled.div`
+    display: grid;
+    gap: 0.9rem;
 
-    @media screen and (max-width: 768px) {
-        color: #C4C4C4;
-        font-size: 0.875rem;
-        line-height: 1.5rem; /* 171.429% */
-        width: 100%;
-        text-align: justify;
+    p {
+        color: var(--color-muted);
+        font-size: 0.92rem;
+        line-height: 1.8;
+        margin: 0;
     }
 `

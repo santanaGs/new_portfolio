@@ -6,8 +6,8 @@ export const Footer = () => {
     return(
         <Container>
             <Content>
-                <Text>@ 2023 - Gabriel Santana</Text>
-                <Logo>Santana</Logo>
+                <Text>© {new Date().getFullYear()} Gabriel Santana</Text>
+                <Logo href="#home" aria-label="Voltar ao início">GS<span>.</span></Logo>
             </Content>
         </Container>
     )
